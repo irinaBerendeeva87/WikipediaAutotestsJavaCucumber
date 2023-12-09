@@ -6,7 +6,7 @@ Feature: User Login
   Scenario: Successful login
     Given the user is on the Wikipedia homepage
     When the user navigates to the login page
-    And enters valid "<username>" and "<userPassword>"
+    And enters valid "<userName>" and "<userPassword>"
     And clicks the login button
     Then the user should be on the main page
     Then the user should log out
@@ -14,6 +14,6 @@ Feature: User Login
   Scenario: Unsuccessful login
     Given the user is on the Wikipedia homepage
     When the user navigates to the login page
-    And enters invalid "<username>" and "<userPassword>"
+    And enters invalid "<userName>" and "<userPassword>"
     And clicks the login button
     Then an error message should be displayed
