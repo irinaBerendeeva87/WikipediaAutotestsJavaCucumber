@@ -28,8 +28,9 @@ public class BasePageObject {
         return driver;
     }
 
-    protected void waitForVisibility(WebElement element) {
+    protected WebElement waitForVisibility(WebElement element) {
         wait.until(visibilityOf(element));
+        return element;
     }
 
     public boolean waitForElementInvisible(WebElement element) {
