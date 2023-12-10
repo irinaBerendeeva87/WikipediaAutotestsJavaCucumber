@@ -13,28 +13,26 @@ public class MainPageObject extends BasePageObject {
         super(driver);
     }
 
-    @FindBy(xpath = "//span[text()='Log in']")
-    protected WebElement loginLinkElement;
-
     @FindBy(id = "pt-logout")
     protected WebElement logOutLinkElement;
-
-//    @FindBy(id = "searchInput")
-//    protected WebElement searchInputElement;
-
-    @FindBy(xpath = "//span[text()='Irina.berendeeva']")
-    protected WebElement userLinkElement;
 
     @FindBy(id = "vector-user-links-dropdown")
     protected WebElement userLinkDropdownElement;
 
+    @FindBy(xpath = "//*[@placeholder='Search Wikipedia']")
+    protected WebElement searchInputElement;
+
+    @FindBy(xpath = "//button[normalize-space()='Search']")
+    protected WebElement searchButtonElement;
+
+    @FindBy(xpath = "//ul[@aria-label='Search results']")
+    protected WebElement searchResultsElement;
+
+    @FindBy(xpath = "//*[@title='Java']")
+    protected WebElement firstJavaSearchResult;
+
     public void openMainPage() {
         getDriver().get(mainPage);
-    }
-
-    public void clickLoginPageLink() {
-        waitForVisibility(loginLinkElement);
-        loginLinkElement.click();
     }
 
     public void clickUserLinkDropdown() {
@@ -42,13 +40,34 @@ public class MainPageObject extends BasePageObject {
         userLinkDropdownElement.click();
     }
 
-    public boolean userLinkIsDisplayed() {
-        waitForVisibility(userLinkElement);
-        return userLinkElement.isDisplayed();
-    }
-
     public void clickLogOut() {
         waitForVisibility(logOutLinkElement);
         logOutLinkElement.click();
+    }
+
+    public void clickSearchButton() {
+        waitForVisibility(searchButtonElement);
+        searchButtonElement.click();
+    }
+
+    public void enterSearchData(String searchText) {
+        waitForVisibility(searchInputElement);
+        searchInputElement.clear();
+        searchInputElement.sendKeys(searchText);
+    }
+
+    public boolean areSearchResultsDisplayed(){
+        waitForVisibility(searchResultsElement);
+        return searchResultsElement.isDisplayed();
+    }
+    public boolean doSearchResultsContainKeyword(String searchText) {
+        waitForVisibility(searchResultsElement);
+        String searchResultsText = searchResultsElement.getText().toLowerCase();
+        return searchResultsText.contains(searchText.toLowerCase());
+    }
+
+    public void clickFirstSearchResult(){
+        waitForVisibility(firstJavaSearchResult);
+        firstJavaSearchResult.click();
     }
 }
