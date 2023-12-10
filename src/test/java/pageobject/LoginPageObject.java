@@ -1,6 +1,5 @@
-package org.example.pageobjects;
+package pageobject;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -17,8 +16,12 @@ public class LoginPageObject extends BasePageObject {
     @FindBy(id = "wpLoginAttempt")
     protected WebElement loginButtonElement;
 
-    public LoginPageObject(WebDriver driver) {
-        super(driver);
+    @FindBy(className = "cdx-message__content")
+    protected WebElement errorTextElement;
+
+
+    public LoginPageObject(DriverHolder driverHolder) {
+        super(driverHolder.getDriver());
     }
 
     public void openLoginPage() {
@@ -40,5 +43,9 @@ public class LoginPageObject extends BasePageObject {
     public void clickLoginButton() {
         waitForVisibility(loginButtonElement);
         loginButtonElement.click();
+    }
+    public String getErrorText(){
+        WebElement errorElement = waitForVisibility(errorTextElement);
+        return errorElement.getText();
     }
 }

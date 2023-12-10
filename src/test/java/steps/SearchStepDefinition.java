@@ -1,32 +1,22 @@
 package steps;
 
-import base.BaseTest;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.example.pageobjects.ArticlePageObject;
-import org.example.pageobjects.MainPageObject;
+import pageobject.ArticlePageObject;
+import pageobject.MainPageObject;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class Search extends BaseTest {
-    private MainPageObject mainPageObject;
-    private ArticlePageObject articlePageObject;
+public class SearchStepDefinition {
+    private final MainPageObject mainPageObject;
+    private final ArticlePageObject articlePageObject;
 
-    @Before
-    public void before() {
-        setUp();
-        mainPageObject = new MainPageObject(driver);
-        articlePageObject = new ArticlePageObject(driver);
-    }
-
-    @After
-    public void after() {
-        tearDown();
+    public SearchStepDefinition(MainPageObject mainPageObject, ArticlePageObject articlePageObject) {
+        this.mainPageObject = mainPageObject;
+        this.articlePageObject = articlePageObject;
     }
 
     @Given("the user is on the Wikipedia homepage")
@@ -47,8 +37,12 @@ public class Search extends BaseTest {
     @Then("the user should see search results related to searchText")
     public void theUserShouldSeeSearchResultsRelatedToSearchText() {
         assertTrue("Search results are not displayed.", mainPageObject.areSearchResultsDisplayed());
-        assertTrue("Search results do not contain the keyword 'Java'.",
-                mainPageObject.doSearchResultsContainKeyword("Java"));
+
+        String searchText = mainPageObject.getSearchText().toLowerCase();
+        assertTrue(
+                "Search results do not contain the keyword 'Java'.",
+                searchText.contains("java")
+        );
     }
 
     @And("the user clicks on the first result")

@@ -1,6 +1,5 @@
-package org.example.pageobjects;
+package pageobject;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -9,8 +8,8 @@ public class MainPageObject extends BasePageObject {
 
     private final static String mainPage = "https://en.wikipedia.org/wiki/Main_Page";
 
-    public MainPageObject(WebDriver driver) {
-        super(driver);
+    public MainPageObject(DriverHolder driverHolder) {
+        super(driverHolder.getDriver());
     }
 
     @FindBy(id = "pt-logout")
@@ -56,17 +55,18 @@ public class MainPageObject extends BasePageObject {
         searchInputElement.sendKeys(searchText);
     }
 
-    public boolean areSearchResultsDisplayed(){
+    public boolean areSearchResultsDisplayed() {
         waitForVisibility(searchResultsElement);
         return searchResultsElement.isDisplayed();
     }
-    public boolean doSearchResultsContainKeyword(String searchText) {
+
+
+    public String getSearchText() {
         waitForVisibility(searchResultsElement);
-        String searchResultsText = searchResultsElement.getText().toLowerCase();
-        return searchResultsText.contains(searchText.toLowerCase());
+        return searchResultsElement.getText();
     }
 
-    public void clickFirstSearchResult(){
+    public void clickFirstSearchResult() {
         waitForVisibility(firstJavaSearchResult);
         firstJavaSearchResult.click();
     }
