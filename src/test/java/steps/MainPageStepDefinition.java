@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobject.MainPageObject;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class MainPageStepDefinition {
@@ -43,5 +44,17 @@ public class MainPageStepDefinition {
     @And("the user clicks on the first result")
     public void theUserClicksOnTheFirstResult() {
         mainPageObject.clickFirstSearchResult();
+    }
+
+    @Then("the user should be on the main page")
+    public void userShouldBeOnMainPage() {
+        String expectedURL = "https://en.wikipedia.org/wiki/Main_Page";
+        assertEquals("This is not a Main page", expectedURL, mainPageObject.getCurrentUrl());
+    }
+
+    @And("the user should log out")
+    public void userShouldLogOut() {
+        mainPageObject.clickUserLinkDropdown();
+        mainPageObject.clickLogOut();
     }
 }

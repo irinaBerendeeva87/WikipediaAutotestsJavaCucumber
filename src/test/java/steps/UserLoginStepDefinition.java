@@ -5,17 +5,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobject.LoginPageObject;
-import pageobject.MainPageObject;
 
 import static org.junit.Assert.assertEquals;
 
 public class UserLoginStepDefinition {
     private final LoginPageObject loginPage;
-    private final MainPageObject mainPageObject;
 
-    public UserLoginStepDefinition(LoginPageObject loginPage, MainPageObject mainPageObject) {
+    public UserLoginStepDefinition(LoginPageObject loginPage) {
         this.loginPage = loginPage;
-        this.mainPageObject = mainPageObject;
     }
 
     @Given("the user is  on the Login page")
@@ -32,18 +29,6 @@ public class UserLoginStepDefinition {
     @And("clicks the login button")
     public void clicksTheLoginButton() {
         loginPage.clickLoginButton();
-    }
-
-    @Then("the user should be on the main page")
-    public void userShouldBeOnMainPage() {
-        String expectedURL = "https://en.wikipedia.org/wiki/Main_Page";
-        assertEquals("This is not a Main page", expectedURL, mainPageObject.getCurrentUrl());
-    }
-
-    @And("the user should log out")
-    public void userShouldLogOut() {
-        mainPageObject.clickUserLinkDropdown();
-        mainPageObject.clickLogOut();
     }
 
     @When("enters invalid {string} and {string}")
