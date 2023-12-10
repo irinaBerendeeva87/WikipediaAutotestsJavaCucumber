@@ -35,4 +35,12 @@ public class BasePageObject {
         wait.until(visibilityOf(element));
         return element;
     }
+
+    protected void sleep(long milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
