@@ -53,6 +53,7 @@ public class MainPageObject extends BasePageObject {
         waitForVisibility(searchInputElement);
         searchInputElement.clear();
         searchInputElement.sendKeys(searchText);
+        sleep(1000);
     }
 
     public boolean areSearchResultsDisplayed() {
