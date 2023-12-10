@@ -4,19 +4,15 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pageobject.ArticlePageObject;
 import pageobject.MainPageObject;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class SearchStepDefinition {
+public class MainPageStepDefinition {
     private final MainPageObject mainPageObject;
-    private final ArticlePageObject articlePageObject;
 
-    public SearchStepDefinition(MainPageObject mainPageObject, ArticlePageObject articlePageObject) {
+    public MainPageStepDefinition(MainPageObject mainPageObject) {
         this.mainPageObject = mainPageObject;
-        this.articlePageObject = articlePageObject;
     }
 
     @Given("the user is on the Wikipedia homepage")
@@ -37,7 +33,6 @@ public class SearchStepDefinition {
     @Then("the user should see search results related to searchText")
     public void theUserShouldSeeSearchResultsRelatedToSearchText() {
         assertTrue("Search results are not displayed.", mainPageObject.areSearchResultsDisplayed());
-
         String searchText = mainPageObject.getSearchText().toLowerCase();
         assertTrue(
                 "Search results do not contain the keyword 'Java'.",
@@ -48,11 +43,5 @@ public class SearchStepDefinition {
     @And("the user clicks on the first result")
     public void theUserClicksOnTheFirstResult() {
         mainPageObject.clickFirstSearchResult();
-    }
-
-    @Then("the user should be on the searchText article page")
-    public void theUserShouldBeOnTheArticlePage() {
-        String actualTitle = articlePageObject.getArticleTitle();
-        assertEquals("Actual title isn't equal to 'Java'", actualTitle, "Java");
     }
 }
