@@ -16,6 +16,8 @@ public class DriverHolder {
         options.addArguments("--disable-dev-shm-usage");
 //        options.addArguments("--headless");
         driver = new ChromeDriver(options);
+//        driver.manage().window().fullscreen();
+//        driver.manage().window().setSize(new Dimension(2048,1900));
     }
 
     public WebDriver getDriver() {

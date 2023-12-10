@@ -8,17 +8,13 @@ public class MainPageObject extends BasePageObject {
 
     private final static String mainPage = "https://en.wikipedia.org/wiki/Main_Page";
 
-    public MainPageObject(DriverHolder driverHolder) {
-        super(driverHolder.getDriver());
-    }
-
     @FindBy(id = "pt-logout")
     protected WebElement logOutLinkElement;
 
     @FindBy(id = "vector-user-links-dropdown")
     protected WebElement userLinkDropdownElement;
 
-    @FindBy(xpath = "//*[@placeholder='Search Wikipedia']")
+    @FindBy(xpath = "//*[@class='cdx-text-input__input']")
     protected WebElement searchInputElement;
 
     @FindBy(xpath = "//button[normalize-space()='Search']")
@@ -29,6 +25,10 @@ public class MainPageObject extends BasePageObject {
 
     @FindBy(xpath = "//*[@title='Java']")
     protected WebElement firstJavaSearchResult;
+
+    public MainPageObject(DriverHolder driverHolder) {
+        super(driverHolder.getDriver());
+    }
 
     public void openMainPage() {
         getDriver().get(mainPage);

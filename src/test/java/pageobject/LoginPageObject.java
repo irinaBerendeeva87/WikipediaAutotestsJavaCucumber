@@ -44,6 +44,7 @@ public class LoginPageObject extends BasePageObject {
         waitForVisibility(loginButtonElement);
         loginButtonElement.click();
     }
+
     public String getErrorText(){
         WebElement errorElement = waitForVisibility(errorTextElement);
         return errorElement.getText();

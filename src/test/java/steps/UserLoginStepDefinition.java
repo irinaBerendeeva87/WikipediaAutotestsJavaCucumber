@@ -56,7 +56,7 @@ public class UserLoginStepDefinition {
     @Then("an error message should be displayed")
     public void anErrorMessageShouldBeDisplayed() {
         String actualErrorText = loginPage.getErrorText();
-        assertEquals("Registration was Failed",actualErrorText,
+        assertEquals("Registration was Failed", actualErrorText,
                 "Incorrect username or password entered. Please try again.");
     }
 

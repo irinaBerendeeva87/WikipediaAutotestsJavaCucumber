@@ -40,7 +40,7 @@
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
             <!-- The scope tag indicates the visibility scope of the dependency: it is only visible to the test classes in the src/test/java directory. -->
-            <scope>compile</scope>
+            <scope>test</scope>
         </dependency>
         <!-- Cucumber -->
         <dependency>
@@ -50,9 +50,15 @@
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+<!--        <dependency>-->
+<!--            <groupId>io.cucumber</groupId>-->
+<!--            <artifactId>cucumber-junit</artifactId>-->
+<!--            <version>7.14.1</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
+            <artifactId>cucumber-picocontainer</artifactId>
             <version>7.14.1</version>
             <scope>test</scope>
         </dependency>
@@ -83,6 +89,7 @@
             <artifactId>maven-surefire-plugin</artifactId>
             <version>3.2.2</version>
         </dependency>
+
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-core</artifactId>
