@@ -1,14 +1,14 @@
 package steps;
 
 import base.BaseTest;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.pageobjects.LoginPageObject;
 import org.example.pageobjects.MainPageObject;
+import org.junit.After;
+import org.junit.Before;
 
 import static org.junit.Assert.assertEquals;
 
@@ -28,18 +28,13 @@ public class UserLogin extends BaseTest {
         tearDown();
     }
 
-    @Given("the user is on the Wikipedia homepage")
-    public void theUserIsOnTheWikipediaHomepage() {
-        mainPageObject.openMainPage();
+    @Given("the user is  on the Login page")
+    public void theUserIsOnTheLoginPage() {
+        loginPage.openLoginPage();
     }
 
-    @When("the user navigates to the login page")
-    public void theUserNavigatesToTheLoginPage() {
-        mainPageObject.clickLoginPageLink();
-    }
-
-    @And("enters valid {string} and {string}")
-    public void entersValidUserNameAnd() {
+    @When("enters valid userName and userPassword")
+    public void entersValidUserNameAndUserPassword() {
         loginPage.enterUserName("Irina.berendeeva");
         loginPage.enterPassword("(t_Yt6Xm3!V*Ff/");
     }
@@ -55,7 +50,7 @@ public class UserLogin extends BaseTest {
         assertEquals("This is not a Main page", expectedURL, driver.getCurrentUrl());
     }
 
-    @Then("the user should log out")
+    @And("the user should log out")
     public void userShouldLogOut() {
         mainPageObject.clickUserLinkDropdown();
         mainPageObject
