@@ -5,11 +5,17 @@ Feature: Search and Navigate
 
   Scenario: Search for an article
     Given the user is on the Wikipedia homepage
-    When the user enters "Java" in the search bar
+    When the user enters searchText in the search bar
+    Then the user should see search results related to searchText
+
+  Scenario: Search for an article
+    Given the user is on the Wikipedia homepage
+    When the user enters searchText in the search bar
     And clicks the search button
-    Then the user should see search results related to "Java"
+    Then the user should be on the searchText article page
 
   Scenario: Navigate to an article
     Given the user is on the Wikipedia homepage
-    When the user searches for "Appium" and clicks on the first result
-    Then the user should be on the "Appium" article page
+    When the user enters searchText in the search bar
+    And the user clicks on the first result
+    Then the user should be on the searchText article page
