@@ -1,4 +1,4 @@
-name: Run tests
+name: Run Cucumber tests
 
 on:
   push:
@@ -23,7 +23,7 @@ jobs:
           id: setup-chrome
       - run: chrome --version
       - name: Build with Maven
-        run: mvn -B clean test
+        run: mvn clean test
       - name: Load test report history
         uses: actions/checkout@v3
         if: always()
