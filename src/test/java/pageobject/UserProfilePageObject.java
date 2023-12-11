@@ -1,46 +1,56 @@
 package pageobject;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class UserProfilePageObject extends BasePageObject {
 
-    @FindBy(xpath = "//*[@id = 'mw-input-wppassword']")
-    protected WebElement changePasswordButton;
-
-    @FindBy(xpath = "//*[@name='password']")
-    protected WebElement passwordElement;
-
-    @FindBy(xpath = "//*[@name='retype']")
-    protected WebElement retypePasswordElement;
-
     @FindBy(xpath = "//*[@type='submit']")
-    protected WebElement changeCredentialButton;
+    protected WebElement submitButton;
+
+    @FindBy(id = "mw-prefsection-rendering-dateformat")
+    protected WebElement dateFormatElement;
+
+    @FindBy(id = "ooui-php-497")
+    protected WebElement appearanceButton;
+
+    @FindBy(xpath = "//*[@class='mw-notification-content']")
+    protected WebElement notificationElement;
+
+    @FindBy(xpath = "//label[@for='ooui-php-84']")
+    protected WebElement oldDataFormatElement;
+
+    @FindBy(xpath = "//label[@for='ooui-php-85']")
+    protected WebElement newDataFormatElement;
 
     public UserProfilePageObject(DriverHolder driverHolder) {
         super(driverHolder.getDriver());
     }
 
-    public void setUserNewPassword(String userPassword) {
-        waitForVisibility(passwordElement);
-        passwordElement.clear();
-        passwordElement.sendKeys(userPassword);
+    public void clickAppearanceButton() {
+        waitForVisibility(appearanceButton).click();
     }
 
-    public void retypeUserPassword(String userPassword) {
-        waitForVisibility(retypePasswordElement);
-        retypePasswordElement.clear();
-        retypePasswordElement.sendKeys(userPassword);
+    public void chooseNewDataFormat() {
+        waitForVisibility(newDataFormatElement).click();
     }
 
-    public void clickChangePasswordButton() {
-        waitForVisibility(changePasswordButton);
-        changePasswordButton.click();
+    public boolean isNotificationDisplayed() {
+        return waitForVisibility(notificationElement).isDisplayed();
     }
 
-    public void clickChangeCredentialButton() {
-        waitForVisibility(changeCredentialButton);
-        changeCredentialButton.click();
+    public void clickSubmitButton() {
+        waitForVisibility(submitButton).click();
+    }
+
+    public void scrollToDataFormat() {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) getDriver();
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", dateFormatElement);
+    }
+
+    public void chooseOldDataFormat() {
+        waitForVisibility(oldDataFormatElement).click();
     }
 
 }

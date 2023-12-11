@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import pageobject.UserProfilePageObject;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class UserProfilePageStepDefinition {
     private final UserProfilePageObject userProfilePageObject;
@@ -13,25 +14,41 @@ public class UserProfilePageStepDefinition {
         this.userProfilePageObject = userProfilePageObject;
     }
 
-    @And("the user selects the option to change password")
-    public void theUserSelectsTheOptionToChangePassword() {
-        userProfilePageObject.clickChangePasswordButton();
-    }
-
-    @And("set newPassword and  retype newPassword")
-    public void setNewPasswordAndRetypeNewPassword() {
-        userProfilePageObject.setUserNewPassword("qwerty12a");
-        userProfilePageObject.retypeUserPassword("qwerty12a");
-    }
-
-    @And("saves the changes")
-    public void savesTheChanges() {
-        userProfilePageObject.clickChangeCredentialButton();
-    }
-
     @Then("the user should be on the Preferences page")
     public void theUserShouldBeOnThePreferencesPage() {
         String expectedURL = "https://en.wikipedia.org/wiki/Special:Preferences";
         assertEquals("This is not a Preferences page", expectedURL, userProfilePageObject.getCurrentUrl());
+    }
+
+    @And("the user navigates to the Appearance page")
+    public void theUserNavigatesToTheAppearancePage() {
+        userProfilePageObject.clickAppearanceButton();
+    }
+
+    @And("the user choose new date format")
+    public void theUserChooseNewDateFormat() {
+        userProfilePageObject.chooseNewDataFormat();
+    }
+
+    @And("saves the changes")
+    public void savesTheChanges() {
+        userProfilePageObject.clickSubmitButton();
+    }
+
+    @Then("the user should see a notification that the changes are saved")
+    public void theUserShouldSeeANotificationThatTheChangesAreSaved() {
+        assertTrue("Notification 'Your preferences have been saved.' is not displayed", userProfilePageObject.isNotificationDisplayed());
+    }
+
+    @And("the user scrolls down to the Date format")
+    public void theUserScrollsDownToTheDateFormat() {
+        userProfilePageObject.scrollToDataFormat();
+    }
+
+    @And("the user should choose and save old date format")
+    public void theUserShouldChooseAndSaveOldDateFormat() {
+        userProfilePageObject.scrollToDataFormat();
+        userProfilePageObject.chooseOldDataFormat();
+        userProfilePageObject.clickSubmitButton();
     }
 }
