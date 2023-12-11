@@ -19,7 +19,7 @@ public class Hooks {
     }
 
     @After
-    public void takeScraenshotOnFailure(Scenario scenario) {
+    public void takeScreenshotOnFailure(Scenario scenario) {
 
         if (scenario.isFailed()) {
 
