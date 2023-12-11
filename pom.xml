@@ -13,8 +13,20 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <aspectj.version>1.9.20.1</aspectj.version>
-        <allure.version>2.13.6</allure.version>
+        <allure.version>2.24.0</allure.version>
     </properties>
+    <!-- Add allure-bom to dependency management to ensure correct versions of all the dependencies are used -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-bom</artifactId>
+                <version>${allure.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <!-- Selenium -->
@@ -35,13 +47,13 @@
             <artifactId>selenium-devtools-v119</artifactId>
             <version>4.15.0</version>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <!-- The scope tag indicates the visibility scope of the dependency: it is only visible to the test classes in the src/test/java directory. -->
-            <scope>test</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>junit</groupId>-->
+<!--            <artifactId>junit</artifactId>-->
+<!--            <version>4.13.2</version>-->
+<!--            &lt;!&ndash; The scope tag indicates the visibility scope of the dependency: it is only visible to the test classes in the src/test/java directory. &ndash;&gt;-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
         <!-- Cucumber -->
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -49,13 +61,13 @@
             <version>7.14.1</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
-<!--        <dependency>-->
-<!--            <groupId>io.cucumber</groupId>-->
-<!--            <artifactId>cucumber-junit</artifactId>-->
-<!--            <version>7.14.1</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+<!--         https://mvnrepository.com/artifact/io.cucumber/cucumber-junit-->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>7.14.1</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-picocontainer</artifactId>
@@ -75,7 +87,6 @@
             <artifactId>webdrivermanager</artifactId>
             <version>5.6.2</version>
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-junit -->
         <dependency>
             <groupId>org.hamcrest</groupId>
@@ -84,12 +95,11 @@
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>3.2.2</version>
-        </dependency>
-
+<!--        <dependency>-->
+<!--            <groupId>org.apache.maven.plugins</groupId>-->
+<!--            <artifactId>maven-surefire-plugin</artifactId>-->
+<!--            <version>3.2.2</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-core</artifactId>
@@ -110,7 +120,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
                 <configuration>
+                    <parallel>methods</parallel>
                     <testFailureIgnore>false</testFailureIgnore>
+                    <useUnlimitedThreads>true</useUnlimitedThreads>
                     <argLine>
                         -Dfile.encoding=UTF-8
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
