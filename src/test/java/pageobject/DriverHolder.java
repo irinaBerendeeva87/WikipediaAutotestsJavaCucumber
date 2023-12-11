@@ -1,6 +1,7 @@
 package pageobject;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,7 +18,7 @@ public class DriverHolder {
 //        options.addArguments("--headless");
         driver = new ChromeDriver(options);
 //        driver.manage().window().fullscreen();
-//        driver.manage().window().setSize(new Dimension(2048,1800));
+        driver.manage().window().setSize(new Dimension(2048,1800));
     }
 
     public WebDriver getDriver() {
