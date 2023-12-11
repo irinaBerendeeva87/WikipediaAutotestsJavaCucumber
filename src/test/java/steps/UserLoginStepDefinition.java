@@ -44,7 +44,6 @@ public class UserLoginStepDefinition {
         assertEquals("Registration was Failed",
                 "Incorrect username or password entered. Please try again.",
                 actualErrorText);
-
     }
 
     @Given("the user is logged in to their account")

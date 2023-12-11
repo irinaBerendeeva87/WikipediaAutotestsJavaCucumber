@@ -19,7 +19,6 @@ public class LoginPageObject extends BasePageObject {
     @FindBy(className = "cdx-message__content")
     protected WebElement errorTextElement;
 
-
     public LoginPageObject(DriverHolder driverHolder) {
         super(driverHolder.getDriver());
     }
@@ -29,20 +28,17 @@ public class LoginPageObject extends BasePageObject {
     }
 
     public void setUserName(String userName) {
-        waitForVisibility(userNameElement);
-        userNameElement.clear();
+        waitForVisibility(userNameElement).clear();
         userNameElement.sendKeys(userName);
     }
 
     public void setPassword(String userPassword) {
-        waitForVisibility(passwordElement);
-        passwordElement.clear();
+        waitForVisibility(passwordElement).clear();
         passwordElement.sendKeys(userPassword);
     }
 
     public void clickLoginButton() {
-        waitForVisibility(loginButtonElement);
-        loginButtonElement.click();
+        waitForVisibility(loginButtonElement).click();
     }
 
     public String getErrorText(){

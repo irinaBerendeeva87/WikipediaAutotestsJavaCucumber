@@ -7,7 +7,7 @@ All scenarios are described in the respective feature files.
 The development of this framework was conducted in the develop branch.
 
 
-## Requirements
+### Requirements
 
 - Java 17
 - Maven
@@ -24,12 +24,25 @@ Search.feature: Scenarios related to searching.
 
 UserLogin.feature: Scenarios related to user login.
 
-## Installation
+### Continuous Integration (CI)
+Continuous Integration is configured through GitHub Actions, automating the test execution process.
+
+Branch Information
+The development of this framework was conducted in the develop branch.
+
+### 🔖 View Report in two ways:
+
+1. You can view [here](https://github.com/irinaBerendeeva87/WikipediaAutotestsJavaCucumber/tree/gh-pages/10/data/test-cases) the latest Allure report in the branch gh-pages
+
+2. By following the link provided at GitHub page
+
+https://irinaberendeeva87.github.io/WikipediaAutotestsJavaCucumber/10/
+### Installation
 Clone the repository:
 ```bash
 gh repo clone irinaBerendeeva87/WikipediaAutotestsJavaCucumber
 ```
-## Running Tests
+### Running Tests
 Using Maven
 
 mvn clean test
@@ -41,10 +54,6 @@ Open the src/test/java/runner/RunTest.java file.
 
 Right-click on the file and choose "Run" to execute the tests
 
-## Generating Allure Report
+### Generating Allure Report
 mvn allure:serve
-
-### Known Issue
-Encountered a problem with running tests on CI through GitHub Actions. 
-Currently investigating and working on a resolution.
 

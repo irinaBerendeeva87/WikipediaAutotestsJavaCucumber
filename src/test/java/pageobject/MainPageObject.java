@@ -5,7 +5,6 @@ import org.openqa.selenium.support.FindBy;
 
 
 public class MainPageObject extends BasePageObject {
-
     private final static String mainPage = "https://en.wikipedia.org/wiki/Main_Page";
 
     @FindBy(id = "pt-logout")
@@ -38,23 +37,19 @@ public class MainPageObject extends BasePageObject {
     }
 
     public void clickUserLinkDropdown() {
-        waitForVisibility(userLinkDropdownElement);
-        userLinkDropdownElement.click();
+        waitForVisibility(userLinkDropdownElement).click();
     }
 
     public void clickLogOut() {
-        waitForVisibility(logOutLinkElement);
-        logOutLinkElement.click();
+        waitForVisibility(logOutLinkElement).click();
     }
 
     public void clickSearchButton() {
-        waitForVisibility(searchButtonElement);
-        searchButtonElement.click();
+        waitForVisibility(searchButtonElement).click();
     }
 
     public void setSearchData(String searchText) {
-        waitForVisibility(searchInputElement);
-        searchInputElement.clear();
+        waitForVisibility(searchInputElement).clear();
         searchInputElement.sendKeys(searchText);
         sleep(1000);
     }

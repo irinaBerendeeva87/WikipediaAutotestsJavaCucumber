@@ -18,7 +18,6 @@ public class ArticlePageObject extends BasePageObject {
     protected WebElement contentElement;
 
     public ArticlePageObject(DriverHolder driverHolder) {
-
         super(driverHolder.getDriver());
     }
 
@@ -42,4 +41,3 @@ public class ArticlePageObject extends BasePageObject {
         return contentElement.isDisplayed();
     }
 }
-
