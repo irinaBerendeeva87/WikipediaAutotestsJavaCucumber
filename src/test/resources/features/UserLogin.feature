@@ -5,14 +5,14 @@ Feature: User Login
 
   Scenario: Successful login
     Given the user is  on the Login page
-    When enters valid userName and userPassword
+    When set valid userName and userPassword
     And clicks the login button
     Then the user should be on the main page
     Then the user should log out
 
   Scenario Outline: Unsuccessful login
     Given  the user is  on the Login page
-    When enters invalid "<userName>" and "<userPassword>"
+    When set invalid "<userName>" and "<userPassword>"
     And clicks the login button
     Then an error message should be displayed
   Examples:

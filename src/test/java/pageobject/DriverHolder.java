@@ -17,6 +17,7 @@ public class DriverHolder {
 //        options.addArguments("--headless");
         driver = new ChromeDriver(options);
 //        driver.manage().window().fullscreen();
+//        driver.manage().window().setSize(new Dimension(2048,1800));
     }
 
     public WebDriver getDriver() {

@@ -61,6 +61,5 @@ public class MainPageStepDefinition {
     @When("the user opens the account preference")
     public void theUserOpensTheAccountPreference() {
         mainPageObject.openPreferences();
-
     }
 }

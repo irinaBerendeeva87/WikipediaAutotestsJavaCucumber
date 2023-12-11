@@ -20,8 +20,8 @@ public class UserLoginStepDefinition {
         loginPage.openLoginPage();
     }
 
-    @When("enters valid userName and userPassword")
-    public void entersValidUserNameAndUserPassword() {
+    @When("set valid userName and userPassword")
+    public void setValidUserNameAndUserPassword() {
         loginPage.setUserName("Irina.berendeeva");
         loginPage.setPassword("qwerty12a");
     }
@@ -31,8 +31,8 @@ public class UserLoginStepDefinition {
         loginPage.clickLoginButton();
     }
 
-    @When("enters invalid {string} and {string}")
-    public void entersInvalidAnd(String userName, String userPassword) {
+    @When("set invalid {string} and {string}")
+    public void setsInvalidAnd(String userName, String userPassword) {
         loginPage.setUserName(userName);
         loginPage.setPassword(userPassword);
         loginPage.clickLoginButton();
@@ -51,7 +51,7 @@ public class UserLoginStepDefinition {
     public void theUserIsLoggedInToTheirAccount() {
         loginPage.openLoginPage();
         loginPage.setUserName("Irina.berendeeva");
-        loginPage.setPassword("qwerty12aq");
+        loginPage.setPassword("qwerty12a");
         loginPage.clickLoginButton();
     }
 }
