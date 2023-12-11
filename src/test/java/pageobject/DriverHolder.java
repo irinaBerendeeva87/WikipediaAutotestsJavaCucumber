@@ -15,9 +15,8 @@ public class DriverHolder {
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-//        options.addArguments("--headless");
+        options.addArguments("--headless");
         driver = new ChromeDriver(options);
-//        driver.manage().window().fullscreen();
         driver.manage().window().setSize(new Dimension(2048,1800));
     }
 
