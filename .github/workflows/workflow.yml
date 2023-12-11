@@ -17,13 +17,13 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-      - uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: stable
-          id: setup-chrome
-      - run: chrome --version
+#      - uses: browser-actions/setup-chrome@v1
+#        with:
+#          chrome-version: stable
+#          id: setup-chrome
+#      - run: chrome --version
       - name: Build with Maven
-        run: mvn clean test
+        run: mvn test
       - name: Load test report history
         uses: actions/checkout@v3
         if: always()
@@ -31,6 +31,7 @@ jobs:
         with:
           ref: gh-pages
           path: gh-pages
+
       - name: Build test Allure report
         uses: simple-elf/allure-report-action@master
         if: always()
