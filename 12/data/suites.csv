@@ -1,0 +1,29 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Dec 11 21:54:11 GMT 2023","Mon Dec 11 21:54:21 GMT 2023","10789","","Change date format in Wikipedia Account","","User can change their date format in Wikipedia account","","User can change their date format in Wikipedia account",""
+"passed","Mon Dec 11 21:54:33 GMT 2023","Mon Dec 11 21:54:35 GMT 2023","1485","","","","","","Unsuccessful login #1",""
+"passed","Mon Dec 11 21:54:25 GMT 2023","Mon Dec 11 21:54:27 GMT 2023","2421","","Search and Navigate","","Search for an article using the Search button","","Search for an article using the Search button","  As a Wikipedia user
+  I want to search for articles
+  So that I can find relevant information"
+"passed","Mon Dec 11 21:54:23 GMT 2023","Mon Dec 11 21:54:25 GMT 2023","1863","","Search and Navigate","","Search for an article via search results","","Search for an article via search results","  As a Wikipedia user
+  I want to search for articles
+  So that I can find relevant information"
+"passed","Mon Dec 11 21:54:35 GMT 2023","Mon Dec 11 21:54:37 GMT 2023","1844","","User Login","","Unsuccessful login","","Unsuccessful login","  As a registered user
+  I want to log in to Wikipedia
+  So that I can access personalized features"
+"passed","Mon Dec 11 21:54:25 GMT 2023","Mon Dec 11 21:54:27 GMT 2023","2429","","","","","","Search for an article using the Search button",""
+"passed","Mon Dec 11 21:54:27 GMT 2023","Mon Dec 11 21:54:30 GMT 2023","2454","","Search and Navigate","","Navigate to an article","","Navigate to an article","  As a Wikipedia user
+  I want to search for articles
+  So that I can find relevant information"
+"passed","Mon Dec 11 21:54:11 GMT 2023","Mon Dec 11 21:54:22 GMT 2023","10951","","","","","","User can change their date format in Wikipedia account",""
+"passed","Mon Dec 11 21:54:30 GMT 2023","Mon Dec 11 21:54:33 GMT 2023","3787","","","","","","Successful login",""
+"passed","Mon Dec 11 21:54:35 GMT 2023","Mon Dec 11 21:54:37 GMT 2023","1849","","","","","","Unsuccessful login #2",""
+"passed","Mon Dec 11 21:54:23 GMT 2023","Mon Dec 11 21:54:25 GMT 2023","1869","","","","","","Search for an article via search results",""
+"passed","Mon Dec 11 21:54:22 GMT 2023","Mon Dec 11 21:54:23 GMT 2023","1385","","","","","","User scrolls to the footer of an open article",""
+"passed","Mon Dec 11 21:54:27 GMT 2023","Mon Dec 11 21:54:30 GMT 2023","2459","","","","","","Navigate to an article",""
+"passed","Mon Dec 11 21:54:30 GMT 2023","Mon Dec 11 21:54:33 GMT 2023","3780","","User Login","","Successful login","","Successful login","  As a registered user
+  I want to log in to Wikipedia
+  So that I can access personalized features"
+"passed","Mon Dec 11 21:54:22 GMT 2023","Mon Dec 11 21:54:23 GMT 2023","1378","","Scroll to Footer on Open Article","","User scrolls to the footer of an open article","","User scrolls to the footer of an open article",""
+"passed","Mon Dec 11 21:54:33 GMT 2023","Mon Dec 11 21:54:35 GMT 2023","1474","","User Login","","Unsuccessful login","","Unsuccessful login","  As a registered user
+  I want to log in to Wikipedia
+  So that I can access personalized features"
