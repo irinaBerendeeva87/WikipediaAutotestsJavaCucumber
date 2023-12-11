@@ -1,4 +1,4 @@
-# 🚀WikipediaAutotestsJavaCucumber🚀
+## 🚀WikipediaAutotestsJavaCucumber🚀
 
  Java Project with Cucumber, JUnit, and Allure
 
@@ -45,7 +45,8 @@ gh repo clone irinaBerendeeva87/WikipediaAutotestsJavaCucumber
 ### Running Tests
 Using Maven
 
-mvn clean test
+`mvn clean test`
+
 
 ### Using RunTest.java
 To run tests using the RunTest.java class, follow these steps:
@@ -55,5 +56,5 @@ Open the src/test/java/runner/RunTest.java file.
 Right-click on the file and choose "Run" to execute the tests
 
 ### Generating Allure Report
-mvn allure:serve
+`mvn allure:serve`
 
