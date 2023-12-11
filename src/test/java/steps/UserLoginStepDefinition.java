@@ -22,8 +22,8 @@ public class UserLoginStepDefinition {
 
     @When("enters valid userName and userPassword")
     public void entersValidUserNameAndUserPassword() {
-        loginPage.enterUserName("Irina.berendeeva");
-        loginPage.enterPassword("(t_Yt6Xm3!V*Ff/");
+        loginPage.setUserName("Irina.berendeeva");
+        loginPage.setPassword("qwerty12a");
     }
 
     @And("clicks the login button")
@@ -33,16 +33,25 @@ public class UserLoginStepDefinition {
 
     @When("enters invalid {string} and {string}")
     public void entersInvalidAnd(String userName, String userPassword) {
-        loginPage.enterUserName(userName);
-        loginPage.enterPassword(userPassword);
+        loginPage.setUserName(userName);
+        loginPage.setPassword(userPassword);
         loginPage.clickLoginButton();
     }
 
     @Then("an error message should be displayed")
     public void anErrorMessageShouldBeDisplayed() {
         String actualErrorText = loginPage.getErrorText();
-        assertEquals("Registration was Failed", actualErrorText,
-                "Incorrect username or password entered. Please try again.");
+        assertEquals("Registration was Failed",
+                "Incorrect username or password entered. Please try again.",
+                actualErrorText);
+
     }
 
+    @Given("the user is logged in to their account")
+    public void theUserIsLoggedInToTheirAccount() {
+        loginPage.openLoginPage();
+        loginPage.setUserName("Irina.berendeeva");
+        loginPage.setPassword("qwerty12aq");
+        loginPage.clickLoginButton();
+    }
 }

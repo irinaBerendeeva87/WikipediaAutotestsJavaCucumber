@@ -28,13 +28,13 @@ public class LoginPageObject extends BasePageObject {
         getDriver().get(loginPage);
     }
 
-    public void enterUserName(String userName) {
+    public void setUserName(String userName) {
         waitForVisibility(userNameElement);
         userNameElement.clear();
         userNameElement.sendKeys(userName);
     }
 
-    public void enterPassword(String userPassword) {
+    public void setPassword(String userPassword) {
         waitForVisibility(passwordElement);
         passwordElement.clear();
         passwordElement.sendKeys(userPassword);

@@ -17,5 +17,5 @@ Feature: User Login
     Then an error message should be displayed
   Examples:
       | userName | userPassword |
-      |empty|(t_Yt6Xm3!V*Ff/|
+      |empty|qwerty12a|
       |Irina.berendeeva|empty|

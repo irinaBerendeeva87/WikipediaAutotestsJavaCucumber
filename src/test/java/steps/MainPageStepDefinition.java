@@ -23,7 +23,7 @@ public class MainPageStepDefinition {
 
     @When("the user enters searchText in the search bar")
     public void theUserEntersSearchTextInTheSearchBar() {
-        mainPageObject.enterSearchData("Java");
+        mainPageObject.setSearchData("Java");
     }
 
     @And("clicks the search button")
@@ -56,5 +56,11 @@ public class MainPageStepDefinition {
     public void userShouldLogOut() {
         mainPageObject.clickUserLinkDropdown();
         mainPageObject.clickLogOut();
+    }
+
+    @When("the user opens the account preference")
+    public void theUserOpensTheAccountPreference() {
+        mainPageObject.openPreferences();
+
     }
 }

@@ -26,6 +26,9 @@ public class MainPageObject extends BasePageObject {
     @FindBy(xpath = "//*[@title='Java']")
     protected WebElement firstJavaSearchResult;
 
+    @FindBy(xpath = "//span[text()='Preferences']")
+    protected WebElement preferencesElement;
+
     public MainPageObject(DriverHolder driverHolder) {
         super(driverHolder.getDriver());
     }
@@ -49,7 +52,7 @@ public class MainPageObject extends BasePageObject {
         searchButtonElement.click();
     }
 
-    public void enterSearchData(String searchText) {
+    public void setSearchData(String searchText) {
         waitForVisibility(searchInputElement);
         searchInputElement.clear();
         searchInputElement.sendKeys(searchText);
@@ -70,5 +73,12 @@ public class MainPageObject extends BasePageObject {
     public void clickFirstSearchResult() {
         waitForVisibility(firstJavaSearchResult);
         firstJavaSearchResult.click();
+    }
+
+    public void openPreferences(){
+        clickUserLinkDropdown();
+        preferencesElement.click();
+//        sleep(1000);
+
     }
 }
