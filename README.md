@@ -2,16 +2,18 @@
 
  Java Project with Cucumber, JUnit, and Allure
 
+I have tested the basic functionality of the web application [Wikipedia.](https://en.wikipedia.org/wiki/Main_Page)
+
 The project implements functionality related to changing data format, scrolling, searching, and user login. 
 All scenarios are described in the respective feature files.
 The development of this framework was conducted in the develop branch.
-
 
 ### Requirements
 
 - Java 17
 - Maven
-- Cucumber 7
+- Cucumber 7.14.1
+- Cucumbe Picocontainer 7.14.1
 - JUnit4
 - Allure
 
