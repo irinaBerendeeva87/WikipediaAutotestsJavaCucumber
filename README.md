@@ -14,7 +14,7 @@ The development of this framework was conducted in the develop branch.
 - Maven
 - Cucumber 7.14.1
 - Cucumbe Picocontainer 7.14.1
-- JUnit4
+- JUnit5
 - Allure
 
 ### Feature Files
@@ -29,7 +29,7 @@ UserLogin.feature: Scenarios related to user login.
 ### Continuous Integration (CI)
 Continuous Integration is configured through GitHub Actions, automating the test execution process.
 
-Branch Information
+### Branch Information
 The development of this framework was conducted in the develop branch.
 
 ### 🔖 View Report in two ways:
